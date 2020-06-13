@@ -20,6 +20,10 @@ describe("Helpers tests (with setup and tear-down)", function () {
     expect(sumPaymentTotal("tipPercent")).toEqual(35);
   });
 
+  it("should calculate the correct tip percentage on calculateTipPercent()", function () {
+    expect(calculateTipPercent(60, 15)).toEqual(25);
+  });
+
   afterEach(function () {
     // teardown logic\
     billAmtInput.value = "";
