@@ -19,7 +19,13 @@ describe("Payments tests (with setup and tear-down)", function () {
     expect(createCurPayment()).toEqual(undefined);
   });
 
-  it("should ... on appendPaymentTable()", function () {});
+  it("should ... on appendPaymentTable()", function () {
+    billAmtInput.value = 80;
+    tipAmtInput.value = 16;
+    let curPayment = createCurPayment();
+    appendPaymentTable(curPayment);
+    expect(paymentTbody.children.length).toEqual(1);
+  });
 
   it("should ... on updateSummary()", function () {});
 
