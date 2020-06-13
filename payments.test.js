@@ -19,7 +19,7 @@ describe("Payments tests (with setup and tear-down)", function () {
     expect(createCurPayment()).toEqual(undefined);
   });
 
-  it("should ... on appendPaymentTable()", function () {
+  it("should append a table row on appendPaymentTable()", function () {
     billAmtInput.value = 80;
     tipAmtInput.value = 16;
     let curPayment = createCurPayment();
