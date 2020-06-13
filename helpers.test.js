@@ -24,6 +24,15 @@ describe("Helpers tests (with setup and tear-down)", function () {
     expect(calculateTipPercent(60, 15)).toEqual(25);
   });
 
+  it("should append a new data cell (td element) on appendTd()", function () {
+    let newTr = document.createElement("tr");
+    appendTd(newTr, "$75");
+    expect(newTr.children[0].innerText).toEqual("$75");
+    appendTd(newTr, "Betty");
+    expect(newTr.children.length).toEqual(2);
+    expect(newTr.children[1].innerText).toEqual("Betty");
+  });
+
   afterEach(function () {
     // teardown logic\
     billAmtInput.value = "";
