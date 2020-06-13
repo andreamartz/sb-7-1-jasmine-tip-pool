@@ -34,7 +34,7 @@ describe("Helpers tests (with setup and tear-down)", function () {
   });
 
   afterEach(function () {
-    // teardown logic\
+    // teardown logic
     billAmtInput.value = "";
     tipAmtInput.value = "";
     // undo submitPaymentInfo()
@@ -45,14 +45,6 @@ describe("Helpers tests (with setup and tear-down)", function () {
     // undo updateServerTable()
     serverTbody.innerHTML = "";
     // undo updateSummary()
-
-    // Q Q Q Q Q Q Q Q Q Q Q Q Q Q Q Q Q Q Q
-    // Why does the following code not work?
-    // for (td in summaryTds) {
-    //   td.innerHTML = "";
-    // }
-    ////////////////////////////////////////
-
     summaryTds[0].innerHTML = "";
     summaryTds[1].innerHTML = "";
     summaryTds[2].innerHTML = "";
