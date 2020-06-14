@@ -24,13 +24,22 @@ describe("Helpers tests (with setup and tear-down)", function () {
     expect(calculateTipPercent(60, 15)).toEqual(25);
   });
 
-  it("should append a new data cell (td element) on appendTd()", function () {
+  it("should append a new data cell (td element) on appendTd(tr, value)", function () {
     let newTr = document.createElement("tr");
     appendTd(newTr, "$75");
     expect(newTr.children[0].innerText).toEqual("$75");
-    appendTd(newTr, "Betty");
+    appendTd(newTr, "$15");
     expect(newTr.children.length).toEqual(2);
-    expect(newTr.children[1].innerText).toEqual("Betty");
+    expect(newTr.children[1].innerText).toEqual("$15");
+  });
+
+  it("should generate delete td and append to tr on appendDeleteBtn(tr)", function () {
+    let newTr = document.createElement("tr");
+
+    appendDeleteBtn(newTr);
+
+    expect(newTr.children.length).toEqual(1);
+    expect(newTr.firstChild.innerHTML).toEqual("X");
   });
 
   afterEach(function () {
