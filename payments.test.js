@@ -5,8 +5,6 @@ describe("Payments tests (with setup and tear-down)", function () {
     paymentId = 0;
   });
 
-  it("should ... on submitPaymentInfo()", function () {});
-
   it("should create an object containing correct bill amt, tip amt, and tip percent on createCurPayment()", function () {
     billAmtInput.value = 80;
     tipAmtInput.value = 16;
@@ -27,11 +25,29 @@ describe("Payments tests (with setup and tear-down)", function () {
     expect(paymentTbody.children.length).toEqual(1);
   });
 
-  it("should ... on updateSummary()", function () {});
+  it("should populate the summary table with three values on updateSummary()", function () {
+    allPayments = {
+      payment1: { billAmt: "100", tipAmt: "15", tipPercent: 15 },
+    };
+    expect(summaryTds.length).toEqual(3);
+  });
 
   afterEach(function () {
     // teardown logic
     billAmtInput.value = "";
     tipAmtInput.value = "";
+    // undo submitPaymentInfo()
+    paymentId = 0;
+    allPayments = {};
+    // undo appendPaymentTable()
+    paymentTbody.innerHTML = "";
+    // undo updateServerTable()
+    serverTbody.innerHTML = "";
+    // undo updateSummary()
+    summaryTds[0].innerHTML = "";
+    summaryTds[1].innerHTML = "";
+    summaryTds[2].innerHTML = "";
+    // undo sumPaymentTotal()
+    total = 0;
   });
 });
